@@ -2,7 +2,7 @@ name: vk_alert_dialog
 description: A new Flutter package.
 version: 0.0.1
 author: Venkatesh K <venkatesh.vk999@gmail.com>
-homepage:
+homepage: https://github.com/venkateshvk7/vk_alert_dialog.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
