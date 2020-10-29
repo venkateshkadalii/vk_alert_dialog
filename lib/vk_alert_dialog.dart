@@ -23,7 +23,7 @@ class VkAlertDialog {
                 willDisplayWidget,
                 MaterialButton(
                   color: Colors.white30,
-                  child: Text('close alert'),
+                  child: Text('close'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },

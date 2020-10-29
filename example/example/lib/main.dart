@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await VkAlertDialog.showVkAlertDialog(context: context, willDisplayWidget: Container(
-            child: Text('My custom alert box, used from example!!'),
+            child: Text('Custom Alert Dialog!'),
           ));
         },
         tooltip: 'Show Custom Alert Dialog',
