@@ -28,28 +28,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
-          child: Text('Click below fab for AlertDialog'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () async {
+                await VKAlertDialog.successDialog(
+                    icon: Icon(Icons.account_circle),
+                    context: context,
+                    title: 'Profile Update',
+                    description: 'profile has been updated successfully',
+                    buttonText: 'OK');
+              },
+              child: Text('Success Dialog'),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            RaisedButton(
+              onPressed: () async {
+                await VKAlertDialog.errorDialog(
+                    context: context,
+                    title: 'Profile Update',
+                    description: 'profile update failed, please try again',
+                    buttonText: 'OK');
+              },
+              child: Text('Error Dialog'),
+            ),
+          ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await VkAlertDialog.showVkAlertDialog(context: context, willDisplayWidget: Container(
-            child: Text('Custom Alert Dialog!'),
-          ));
-        },
-        tooltip: 'Show Custom Alert Dialog',
-        child: Icon(Icons.message),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

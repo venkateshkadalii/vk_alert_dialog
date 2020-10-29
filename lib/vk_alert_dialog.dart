@@ -2,36 +2,59 @@ library vk_alert_dialog;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vk_alert_dialog/widgets/custom_alert_dialog.dart';
 
-class VkAlertDialog {
-  static Future showVkAlertDialog({
+class VKAlertDialog {
+  static Future successDialog({
     @required BuildContext context,
-    @required Widget willDisplayWidget,
+    @required String title,
+    @required String description,
+    @required String buttonText,
+    @required Widget icon,
   }) {
     assert(context != null, "context is null!!");
-    assert(willDisplayWidget != null, "willDisplayWidget is null!!");
+    assert(title != null, "Title is null");
+    assert(description != null, "description is null");
+    assert(buttonText != null, "buttonText is null");
+
     return showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-            ),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                willDisplayWidget,
-                MaterialButton(
-                  color: Colors.white30,
-                  child: Text('close'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            ),
-            elevation: 10,
+          return CustomAlertDialog(
+            title: title,
+            description: description,
+            type: AlertDialogType.SUCCESS,
+            buttonText: buttonText,
+            icon: icon,
           );
-        });
+        },
+    );
   }
+
+  static Future errorDialog({
+    @required BuildContext context,
+    @required String title,
+    @required String description,
+    @required String buttonText,
+    Widget icon,
+  }) {
+    assert(context != null, "context is null!!");
+    assert(title != null, "Title is null");
+    assert(description != null, "description is null");
+    assert(buttonText != null, "buttonText is null");
+
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return CustomAlertDialog(
+          title: title,
+          description: description,
+          type: AlertDialogType.ERROR,
+          buttonText: buttonText,
+          icon: icon,
+        );
+      },
+    );
+  }
+
 }
