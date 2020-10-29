@@ -9,7 +9,7 @@ Types :
 
 To Use library, add library in `pubsec.yaml` file:
 ```
-vk_alert_dialog: ^0.0.1
+vk_alert_dialog: ^0.0.2
 ```
 after package pasted run `flutter packages get` in terminal, then import package
 ```
