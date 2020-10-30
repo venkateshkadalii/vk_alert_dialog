@@ -3,13 +3,13 @@
 **Library is used to display custom alert dialogs for different types**
 
 Types : 
-> Success
-> Error
-> Info
+    1. Success
+    2. Error
+    3. Info
 
 To Use library, add library in `pubsec.yaml` file:
 ```
-vk_alert_dialog: ^0.0.2
+vk_alert_dialog: ^0.0.4
 ```
 after package pasted run `flutter packages get` in terminal, then import package
 ```
