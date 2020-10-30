@@ -3,9 +3,9 @@
 **Library is used to display custom alert dialogs for different types**
 
 Types : 
-   > Success
-   > Error
-   > Info
+> Success
+> Error
+> Info
 
 To Use library, add library in `pubsec.yaml` file:
 ```
@@ -35,6 +35,17 @@ await VKAlertDialog.errorDialog(
                     context: context,
                     title: 'Profile Update',
                     description: 'profile update failed, please try again',
+                    buttonText: 'OK');
+```
+
+
+For Info alert dialog
+
+```
+await VKAlertDialog.infoDialog(
+                    context: context,
+                    title: 'Profile Update',
+                    description: 'please fill required fields',
                     buttonText: 'OK');
 ```
 

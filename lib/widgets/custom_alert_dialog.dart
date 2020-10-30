@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 enum AlertDialogType {
   SUCCESS,
   ERROR,
@@ -18,61 +17,62 @@ class CustomAlertDialog extends StatelessWidget {
   final TextStyle titleStyle = TextStyle(
       fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.bold);
 
-  CustomAlertDialog({Key key,
-    this.title = "Successful",
-    @required this.description,
-    this.icon,
-    this.type = AlertDialogType.INFO,
-    this.buttonText = "OK"})
+  CustomAlertDialog(
+      {Key key,
+      this.title = "Successful",
+      @required this.description,
+      this.icon,
+      this.type = AlertDialogType.INFO,
+      this.buttonText = "OK"})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-        type: MaterialType.transparency,
+      type: MaterialType.transparency,
+      child: Container(
+        alignment: Alignment.center,
         child: Container(
-          alignment: Alignment.center,
-          child: Container(
-            margin: const EdgeInsets.all(12.0),
-            padding: const EdgeInsets.all(20.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
-              color: Colors.white,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SizedBox(height: 10.0),
-                icon ??
-                    Icon(
-                      _getIconForType(type),
-                      color: _getColorForType(type),
-                      size: 50,
-                    ),
-                const SizedBox(height: 10.0),
-                Text(
-                  title,
-                  style: titleStyle,
-                  textAlign: TextAlign.center,
-                ),
-                Divider(),
-                Text(
-                  description,
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 20.0),
-                SizedBox(
-                  width: double.infinity,
-                  child: FlatButton(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Text(buttonText),
-                    onPressed: () => Navigator.pop(context, true),
+          margin: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(20.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: Colors.white,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SizedBox(height: 10.0),
+              icon ??
+                  Icon(
+                    _getIconForType(type),
+                    color: _getColorForType(type),
+                    size: 50,
                   ),
+              const SizedBox(height: 10.0),
+              Text(
+                title,
+                style: titleStyle,
+                textAlign: TextAlign.center,
+              ),
+              Divider(),
+              Text(
+                description,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20.0),
+              SizedBox(
+                width: double.infinity,
+                child: FlatButton(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(buttonText),
+                  onPressed: () => Navigator.pop(context, true),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
+      ),
     );
   }
 

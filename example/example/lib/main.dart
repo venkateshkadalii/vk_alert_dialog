@@ -62,6 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text('Error Dialog'),
             ),
+            SizedBox(
+              height: 20.0,
+            ),
+            RaisedButton(
+              onPressed: () async {
+                await VKAlertDialog.infoDialog(
+                    context: context,
+                    title: 'Profile Update',
+                    description: 'Something went wrong!',
+                    buttonText: 'OK');
+              },
+              child: Text('Info Dialog'),
+            ),
           ],
         ),
       ),
